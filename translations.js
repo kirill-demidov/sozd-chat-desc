@@ -50,11 +50,11 @@ const translations = {
 
         // Stats Section
         statsTitle: "Данные платформы",
-        stat1Number: "180,000+",
+        stat1Number: "180K+",
         stat1Label: "Поправок",
         stat2Number: "1M+",
         stat2Label: "Документов",
-        stat3Number: "40,000+",
+        stat3Number: "40K+",
         stat3Label: "Законопроектов",
         stat4Number: "20+",
         stat4Label: "Модулей анализа",
@@ -292,11 +292,11 @@ const translations = {
 
         // Stats Section
         statsTitle: "Platform Data",
-        stat1Number: "180,000+",
+        stat1Number: "180K+",
         stat1Label: "Amendments",
         stat2Number: "1M+",
         stat2Label: "Documents",
-        stat3Number: "40,000+",
+        stat3Number: "40K+",
         stat3Label: "Bills",
         stat4Number: "20+",
         stat4Label: "Analysis Modules",
