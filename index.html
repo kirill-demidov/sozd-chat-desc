@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СОЗД-Чат - Аналитическая платформа для работы с законодательством РФ</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel="stylesheet" href="style.css?v=18">
+</head>
+<body>
+    <header class="hero">
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+        <div class="container">
+            <h1 data-i18n="title">СОЗД-Чат</h1>
+            <p class="subtitle" data-i18n="subtitle">Аналитическая платформа для работы с законодательством Российской Федерации</p>
+            <div class="version" data-i18n="version">Версия 1.3.17 | 2025</div>
+        </div>
+    </header>
+
+    <section class="problem">
+        <div class="container">
+            <h2 data-i18n="problemTitle">Проблема</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon"><i class="fi fi-br-lock"></i></div>
+                    <h3 data-i18n="problemCard1Title">Ограниченный доступ</h3>
+                    <p data-i18n="problemCard1Text">Официальная СОЗД доступна только с территории РФ, нет гарантий постоянной открытости данных</p>
+                </div>
+                <div class="card">
+                    <div class="icon"><i class="fi fi-br-chart-histogram"></i></div>
+                    <h3 data-i18n="problemCard2Title">Нет аналитики</h3>
+                    <p data-i18n="problemCard2Text">Невозможно получить статистику, тренды, сравнительный анализ законотворческой деятельности</p>
+                </div>
+                <div class="card">
+                    <div class="icon"><i class="fi fi-br-search"></i></div>
+                    <h3 data-i18n="problemCard3Title">Сложный поиск</h3>
+                    <p data-i18n="problemCard3Text">Поиск работает только если известны точные параметры, нет семантического поиска и AI-анализа</p>
+                </div>
+                <div class="card">
+                    <div class="icon"><i class="fi fi-br-edit"></i></div>
+                    <h3 data-i18n="problemCard4Title">Поправки не отражены</h3>
+                    <p data-i18n="problemCard4Text">Поправки к законопроектам никак не отражены на официальном сайте, отсутствует машиночитаемый формат</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2 data-i18n="solutionTitle">Наше решение</h2>
+            <p class="lead" data-i18n="solutionText">Мы создали экосистему из двух платформ: традиционную веб-систему для глубокого анализа с фильтрами и таблицами, и AI-powered платформу для работы с законодательством на естественном языке — каждая для своих задач</p>
+        </div>
+    </section>
+
+    <section class="platforms">
+        <div class="container">
+            <h2 data-i18n="platformsTitle">Две платформы для разных задач</h2>
+            <div class="platform-cards">
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fi fi-br-computer"></i></div>
+                        <h3 data-i18n="platformWebTitle">СОЗД-Web</h3>
+                        <div class="platform-badge" data-i18n="platformWebBadge">Профессиональная платформа</div>
+                    </div>
+                    <p class="platform-desc" data-i18n="platformWebDesc">Традиционный веб-интерфейс для детального анализа и работы с большими объемами данных</p>
+                    <ul class="platform-features">
+                        <li data-i18n="platformWebFeature1">Таблицы с фильтрами и сортировкой</li>
+                        <li data-i18n="platformWebFeature2">180,000+ поправок в базе</li>
+                        <li data-i18n="platformWebFeature3">Графики и статистика</li>
+                        <li data-i18n="platformWebFeature4">Экспорт в Excel</li>
+                        <li data-i18n="platformWebFeature5">Стенограммы заседаний</li>
+                        <li data-i18n="platformWebFeature6">Рейтинги депутатов</li>
+                    </ul>
+                    <a href="https://sozd-web-16542874441.europe-central2.run.app/" class="platform-link" target="_blank" data-i18n="platformWebLink">
+                        Открыть СОЗД-Web →
+                    </a>
+                </div>
+
+                <div class="platform-card featured">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fi fi-br-messages"></i></div>
+                        <h3 data-i18n="platformChatTitle">СОЗД-Chat</h3>
+                        <div class="platform-badge highlight" data-i18n="platformChatBadge">AI-платформа</div>
+                    </div>
+                    <p class="platform-desc" data-i18n="platformChatDesc">ChatGPT-like интерфейс для работы с законами на естественном языке без знания SQL</p>
+                    <ul class="platform-features">
+                        <li data-i18n="platformChatFeature1">Text-to-SQL (Gemini 2.5 Pro)</li>
+                        <li data-i18n="platformChatFeature2">ChatGPT анализ законопроектов</li>
+                        <li data-i18n="platformChatFeature3">Запросы на русском языке</li>
+                        <li data-i18n="platformChatFeature4">История диалогов</li>
+                        <li data-i18n="platformChatFeature5">Markdown ответы</li>
+                        <li data-i18n="platformChatFeature6">Автовыполнение запросов</li>
+                    </ul>
+                    <a href="https://sozd-chat.org" class="platform-link" target="_blank" data-i18n="platformChatLink">
+                        Открыть СОЗД-Chat →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 data-i18n="featuresTitle">Детальный обзор возможностей</h2>
+            <p class="lead" data-i18n="featuresLead" style="margin-bottom: 60px;">Полный набор инструментов для работы с законодательством на всех уровнях</p>
+
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-messages-question"></i> <span data-i18n="feature1Title">Text-to-SQL интерфейс</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature1Item1">Запросы на русском языке:</strong> <span data-i18n="feature1Item1Desc">"Найди законы про налоги за 2023" → автоматический SQL</span></li>
+                        <li><strong data-i18n="feature1Item2">Gemini 2.5 Pro:</strong> <span data-i18n="feature1Item2Desc">Google AI для понимания сложных запросов и генерации SQL</span></li>
+                        <li><strong data-i18n="feature1Item3">Автоматическое выполнение:</strong> <span data-i18n="feature1Item3Desc">SQL генерируется и выполняется мгновенно</span></li>
+                        <li><strong data-i18n="feature1Item4">Таблицы результатов:</strong> <span data-i18n="feature1Item4Desc">красивое отображение данных с экспортом в CSV</span></li>
+                        <li><strong data-i18n="feature1Item5">Подсветка кода:</strong> <span data-i18n="feature1Item5Desc">показ сгенерированного SQL с форматированием</span></li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <div class="mockup">
+                        <div style="font-size: 1.2rem; line-height: 1.8;">
+                            <i class="fi fi-br-data-transfer" style="font-size: 2.5rem;"></i><br>SQL
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-image">
+                    <div class="mockup">
+                        <div style="font-size: 1.2rem; line-height: 1.8;">
+                            <i class="fi fi-br-comment-alt" style="font-size: 2.5rem;"></i><br>ChatGPT
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-brain"></i> <span data-i18n="feature2Title">ChatGPT интерфейс для анализа</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature2Item1">ChatGPT-like чат:</strong> <span data-i18n="feature2Item1Desc">диалоговый интерфейс для работы с законодательством</span></li>
+                        <li><strong data-i18n="feature2Item2">Анализ законопроектов:</strong> <span data-i18n="feature2Item2Desc">автоматическое извлечение основной идеи из пояснительных записок</span></li>
+                        <li><strong data-i18n="feature2Item3">GPT-3.5/GPT-4/GPT-4o:</strong> <span data-i18n="feature2Item3Desc">выбор модели для саммаризации и анализа</span></li>
+                        <li><strong data-i18n="feature2Item4">История чатов:</strong> <span data-i18n="feature2Item4Desc">сохранение всех диалогов с возможностью экспорта</span></li>
+                        <li><strong data-i18n="feature2Item5">Markdown поддержка:</strong> <span data-i18n="feature2Item5Desc">форматированные ответы с кодом и таблицами</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-edit"></i> <span data-i18n="feature3Title">Работа с поправками</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature3Item1">180,000+ поправок</strong> <span data-i18n="feature3Item1Desc">в машиночитаемом формате</span></li>
+                        <li><strong data-i18n="feature3Item2">Фильтрация:</strong> <span data-i18n="feature3Item2Desc">по автору, законопроекту, дате, резолюции</span></li>
+                        <li><strong data-i18n="feature3Item3">Классификация:</strong> <span data-i18n="feature3Item3Desc">технические, косметические, принципиальные</span></li>
+                        <li><strong data-i18n="feature3Item4">NLP-анализ:</strong> <span data-i18n="feature3Item4Desc">выявление паттернов и взаимосвязей между поправками</span></li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <div class="mockup">
+                        <i class="fi fi-br-edit" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div data-i18n="feature3Mockup">Поправки</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-image">
+                    <div class="mockup">
+                        <i class="fi fi-br-chart-line-up" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div data-i18n="feature4Mockup">Графики</div>
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-chart-line-up"></i> <span data-i18n="feature4Title">Аналитика и статистика</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature4Item1">Сравнение созывов:</strong> <span data-i18n="feature4Item1Desc">динамика законотворчества по сессиям и годам</span></li>
+                        <li><strong data-i18n="feature4Item2">Активность инициаторов:</strong> <span data-i18n="feature4Item2Desc">рейтинги депутатов, фракций, комитетов</span></li>
+                        <li><strong data-i18n="feature4Item3">"Экспресс-законы":</strong> <span data-i18n="feature4Item3Desc">выявление ускоренных процедур принятия</span></li>
+                        <li><strong data-i18n="feature4Item4">Голосования:</strong> <span data-i18n="feature4Item4Desc">статистика по фракциям и депутатам</span></li>
+                        <li><strong data-i18n="feature4Item5">Визуализация:</strong> <span data-i18n="feature4Item5Desc">интерактивные графики и таблицы</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-image">
+                    <div class="mockup">
+                        <i class="fi fi-br-search-alt" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div data-i18n="feature5Mockup">Поиск</div>
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-search-alt"></i> <span data-i18n="feature5Title">Расширенный поиск</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature5Item1">Векторный поиск:</strong> <span data-i18n="feature5Item1Desc">семантический поиск похожих законопроектов через BERT-эмбеддинги</span></li>
+                        <li><strong data-i18n="feature5Item2">По стенограммам:</strong> <span data-i18n="feature5Item2Desc">поиск ключевых слов в выступлениях депутатов</span></li>
+                        <li><strong data-i18n="feature5Item3">Фильтры:</strong> <span data-i18n="feature5Item3Desc">по году, сессии, статусу, инициатору, теме</span></li>
+                        <li><strong data-i18n="feature5Item4">Полнотекстовый поиск:</strong> <span data-i18n="feature5Item4Desc">по названиям и содержимому документов</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-folder-open"></i> <span data-i18n="feature6Title">Хранение документов</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature6Item1">1M+ документов</strong> <span data-i18n="feature6Item1Desc">в Google Cloud Storage</span></li>
+                        <li><strong data-i18n="feature6Item2">Постоянный доступ:</strong> <span data-i18n="feature6Item2Desc">документы сохраняются, даже если исчезнут с СОЗД</span></li>
+                        <li><strong data-i18n="feature6Item3">Без VPN:</strong> <span data-i18n="feature6Item3Desc">работа из любой точки мира</span></li>
+                        <li><strong data-i18n="feature6Item4">Форматы:</strong> <span data-i18n="feature6Item4Desc">PDF, DOCX, текстовые версии</span></li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <div class="mockup">
+                        <i class="fi fi-br-cloud" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div data-i18n="feature6Mockup">Облако</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-image">
+                    <div class="mockup">
+                        <i class="fi fi-br-file-check" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div data-i18n="feature8Mockup">Документы</div>
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-file-check"></i> <span data-i18n="feature8Title">Типы документов</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature8Item1">Тексты законопроектов и поправок:</strong> <span data-i18n="feature8Item1Desc">принятые и отклоненные</span></li>
+                        <li><strong data-i18n="feature8Item2">Стенограммы заседаний:</strong> <span data-i18n="feature8Item2Desc">Государственной Думы</span></li>
+                        <li><strong data-i18n="feature8Item3">Результаты голосования:</strong> <span data-i18n="feature8Item3Desc">депутатов</span></li>
+                        <li><strong data-i18n="feature8Item4">Тексты принятых документов:</strong> <span data-i18n="feature8Item4Desc">законы, постановления, резолюции, протоколы</span></li>
+                        <li><strong data-i18n="feature8Item5">Доступность:</strong> <span data-i18n="feature8Item5Desc">все это доступно без ограничений</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3><i class="fi fi-br-mobile-button"></i> <span data-i18n="feature7Title">Telegram экосистема</span></h3>
+                    <ul>
+                        <li><strong data-i18n="feature7Item1">"Рында Госдумы РФ"</strong> <span data-i18n="feature7Item1Desc">- канал с автоматическими уведомлениями в реальном времени</span></li>
+                        <li><strong data-i18n="feature7Item2">Новые законопроекты:</strong> <span data-i18n="feature7Item2Desc">мгновенное оповещение о законопроектах от отслеживаемых депутатов</span></li>
+                        <li><strong data-i18n="feature7Item3">Движение законов:</strong> <span data-i18n="feature7Item3Desc">автоматические обновления о статусах и изменениях</span></li>
+                        <li><strong data-i18n="feature7Item4">@dsi_sozd_bot</strong> <span data-i18n="feature7Item4Desc">- персональный аналитик для запросов по активности депутатов</span></li>
+                        <li><strong data-i18n="feature7Item5">Умная фильтрация:</strong> <span data-i18n="feature7Item5Desc">настраиваемый список отслеживаемых инициаторов</span></li>
+                        <li><strong data-i18n="feature7Item6">AI саммари:</strong> <span data-i18n="feature7Item6Desc">автоматическое извлечение основной идеи законопроекта через ChatGPT</span></li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <div class="mockup telegram-mockup">
+                        <i class="fi fi-br-megaphone" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <div>Telegram</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech">
+        <div class="container">
+            <h2 data-i18n="techTitle">Технологический стек</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h4 data-i18n="techBackend">Backend</h4>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4 data-i18n="techAI">AI/ML</h4>
+                    <div class="tags">
+                        <span class="tag">Google Gemini 2.5 Pro</span>
+                        <span class="tag">OpenAI GPT-4</span>
+                        <span class="tag">BERT</span>
+                        <span class="tag">Transformers</span>
+                        <span class="tag">pgvector</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4 data-i18n="techCloud">Облачные сервисы</h4>
+                    <div class="tags">
+                        <span class="tag">Google Cloud Storage</span>
+                        <span class="tag">DigitalOcean</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4 data-i18n="techIntegrations">Интеграции</h4>
+                    <div class="tags">
+                        <span class="tag">Telegram Bot API</span>
+                        <span class="tag">REST API Госдумы</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4 data-i18n="techDocs">Обработка документов</h4>
+                    <div class="tags">
+                        <span class="tag">pdfplumber</span>
+                        <span class="tag">pdf2docx</span>
+                        <span class="tag">BeautifulSoup</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2 data-i18n="statsTitle">Данные платформы</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number" data-i18n="stat1Number">180,000+</div>
+                    <div class="stat-label" data-i18n="stat1Label">Поправок</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-i18n="stat2Number">1M+</div>
+                    <div class="stat-label" data-i18n="stat2Label">Документов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-i18n="stat3Number">40,000+</div>
+                    <div class="stat-label" data-i18n="stat3Label">Законопроектов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-i18n="stat4Number">20+</div>
+                    <div class="stat-label" data-i18n="stat4Label">Модулей анализа</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="capabilities">
+        <div class="container">
+            <h2 data-i18n="capabilitiesTitle">Что можно делать с платформой</h2>
+            <div class="capabilities-list">
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability1">Отслеживать все законопроекты конкретного депутата или комитета</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability2">Анализировать скорость принятия законов и выявлять "экспресс-законы"</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability3">Сравнивать эффективность работы разных созывов и сессий</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability4">Находить законопроекты через чат на естественном языке без знания SQL</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability5">Использовать AI для автогенерации SQL-запросов из русскоязычных вопросов</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability6">Изучать кто и как голосовал по конкретным вопросам</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability7">Анализировать поправки и их влияние на итоговый текст закона</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability8">Отслеживать упоминания ключевых тем в стенограммах заседаний</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability9">Получать краткие саммари законопроектов через ChatGPT</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability10">Подписаться на канал "Рында Госдумы РФ" для получения уведомлений в реальном времени</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability11">Использовать Telegram бота для быстрого доступа к аналитике депутатов</p>
+                </div>
+                <div class="capability">
+                    <span class="check"><i class="fi fi-br-check"></i></span>
+                    <p data-i18n="capability12">Настроить список отслеживаемых депутатов для персонализированных уведомлений</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <div class="container">
+            <h2 data-i18n="useCasesTitle">Для кого эта платформа</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3><i class="fi fi-br-scale"></i> <span data-i18n="useCase1Title">Юристы</span></h3>
+                    <p data-i18n="useCase1Desc">Быстрый поиск релевантных законопроектов, отслеживание изменений законодательства, анализ правовых трендов</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fi fi-br-stats"></i> <span data-i18n="useCase2Title">Аналитики</span></h3>
+                    <p data-i18n="useCase2Desc">Статистика законотворчества, выявление паттернов, сравнительный анализ работы депутатов и комитетов</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fi fi-br-newspaper"></i> <span data-i18n="useCase3Title">Журналисты</span></h3>
+                    <p data-i18n="useCase3Desc">Мониторинг законодательной деятельности, поиск инсайтов, проверка фактов о голосованиях</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fi fi-br-graduation-cap"></i> <span data-i18n="useCase4Title">Исследователи</span></h3>
+                    <p data-i18n="useCase4Desc">Академические исследования законотворческого процесса, доступ к архивам, работа с big data</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fi fi-br-institution"></i> <span data-i18n="useCase5Title">НКО и активисты</span></h3>
+                    <p data-i18n="useCase5Desc">Отслеживание важных законопроектов, участие в общественном обсуждении, адвокация</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fi fi-br-briefcase"></i> <span data-i18n="useCase6Title">Бизнес</span></h3>
+                    <p data-i18n="useCase6Desc">Мониторинг законодательства в вашей отрасли, оценка регуляторных рисков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <h2 data-i18n="advantagesTitle">Преимущества перед официальной СОЗД</h2>
+            <div class="comparison">
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-globe"></i></div>
+                    <h4 data-i18n="advantage1Title">Глобальный доступ</h4>
+                    <p data-i18n="advantage1Desc">Работает из любой точки мира без VPN</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-robot"></i></div>
+                    <h4 data-i18n="advantage2Title">AI-интерфейс</h4>
+                    <p data-i18n="advantage2Desc">ChatGPT-like чат для поиска на естественном языке</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-database"></i></div>
+                    <h4 data-i18n="advantage3Title">Архив документов</h4>
+                    <p data-i18n="advantage3Desc">Все документы сохранены навсегда</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-chart-histogram"></i></div>
+                    <h4 data-i18n="advantage4Title">Развитая аналитика</h4>
+                    <p data-i18n="advantage4Desc">Графики, статистика, тренды, рейтинги</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-search-alt"></i></div>
+                    <h4 data-i18n="advantage5Title">Умный поиск</h4>
+                    <p data-i18n="advantage5Desc">Семантический и векторный поиск</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-file-edit"></i></div>
+                    <h4 data-i18n="advantage6Title">База поправок</h4>
+                    <p data-i18n="advantage6Desc">180K поправок в структурированном виде</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-megaphone"></i></div>
+                    <h4 data-i18n="advantage7Title">Канал "Рында"</h4>
+                    <p data-i18n="advantage7Desc">Уведомления о новых законах в реальном времени</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-robot"></i></div>
+                    <h4 data-i18n="advantage8Title">Telegram бот</h4>
+                    <p data-i18n="advantage8Desc">Персональная аналитика по депутатам</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="advantage-icon"><i class="fi fi-br-target"></i></div>
+                    <h4 data-i18n="advantage9Title">Умная фильтрация</h4>
+                    <p data-i18n="advantage9Desc">Следите только за нужными инициаторами</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 data-i18n="ctaTitle">Начните работать с платформами</h2>
+            <p data-i18n="ctaText">Выберите инструмент под вашу задачу или используйте обе платформы вместе</p>
+            <div class="cta-grid">
+                <div class="cta-platform">
+                    <h3><i class="fi fi-br-computer"></i> <span data-i18n="ctaWebTitle">СОЗД-Web</span></h3>
+                    <p data-i18n="ctaWebText">Для профессионального анализа</p>
+                    <a href="https://sozd-web-16542874441.europe-central2.run.app/" class="button primary" target="_blank" data-i18n="ctaWebButton">
+                        Открыть СОЗД-Web
+                    </a>
+                </div>
+                <div class="cta-platform featured">
+                    <h3><i class="fi fi-br-messages"></i> <span data-i18n="ctaChatTitle">СОЗД-Chat</span></h3>
+                    <p data-i18n="ctaChatText">Для запросов на естественном языке</p>
+                    <a href="https://sozd-chat.org" class="button primary" target="_blank" data-i18n="ctaChatButton">
+                        Открыть СОЗД-Chat
+                    </a>
+                </div>
+            </div>
+            <div class="cta-buttons" style="margin-top: 40px;">
+                <a href="https://t.me/rynda_duma" class="button secondary" target="_blank">
+                    <span class="tg-button-icon"><i class="fi fi-br-megaphone"></i></span> <span data-i18n="ctaRyndaButton">Канал "Рында"</span>
+                </a>
+                <a href="https://t.me/dsi_sozd_bot" class="button secondary" target="_blank">
+                    <span class="tg-button-icon"><i class="fi fi-br-robot"></i></span> <span data-i18n="ctaBotButton">Telegram бот</span>
+                </a>
+            </div>
+            <p class="cta-note"><span data-i18n="ctaContact">Или напишите нам:</span> <a href="https://t.me/Demidov_k" target="_blank">@Demidov_k</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span data-i18n="footerText">СОЗД-Чат. Аналитическая платформа для работы с законодательством РФ</span></p>
+            <p class="version-footer" data-i18n="footerVersion">Версия 1.3.17 от 21.08.2025</p>
+        </div>
+    </footer>
+
+    <script src="translations.js?v=4"></script>
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Анимация появления при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .feature-block, .stat, .capability').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
