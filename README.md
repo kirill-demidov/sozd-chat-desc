@@ -39,21 +39,41 @@ python3 -m http.server 8000
 
 1. Откройте Settings репозитория на GitHub
 2. Перейдите в раздел "Pages"
-3. В "Source" выберите ветку `master` (или `main`)
-4. В "Folder" выберите `/ (root)`
-5. Сохраните изменения
+3. В "Source" выберите "GitHub Actions" (вместо ветки)
+4. Файл `.github/workflows/deploy.yml` автоматически настроит деплой
+5. После первого push в ветку `main` или `master`, GitHub Actions автоматически задеплоит сайт
 
-### Настройка DNS (если домен sozd-chat.org уже настроен):
+### Автоматический деплой:
 
-Убедитесь, что в DNS настройках домена есть:
-- A-запись, указывающая на IP адреса GitHub Pages:
-  - 185.199.108.153
-  - 185.199.109.153
-  - 185.199.110.153
-  - 185.199.111.153
-- CNAME-запись для www, указывающая на `demidovsi.github.io`
+- При каждом push в ветку `main` или `master` автоматически запускается деплой
+- GitHub Actions использует новый метод деплоя (Pages API)
+- Сайт будет доступен по адресу: `https://kirill-demidov.github.io/sozd-chat-desc/`
 
-Файл `CNAME` в корне репозитория уже содержит домен `sozd-chat.org`.
+### Настройка для работы на `sozd-chat.org/desc`:
+
+Для размещения сайта на поддиректории основного домена `sozd-chat.org/desc`:
+
+1. **Вариант 1: Через nginx/reverse proxy**
+   - Настройте nginx на сервере домена `sozd-chat.org` для proxy на GitHub Pages
+   - Пример конфигурации nginx:
+   ```nginx
+   location /desc {
+       proxy_pass https://kirill-demidov.github.io/sozd-chat-desc/;
+       proxy_set_header Host kirill-demidov.github.io;
+   }
+   ```
+
+2. **Вариант 2: Через DNS и CNAME**
+   - Файл `CNAME` содержит `sozd-chat.org`
+   - Настройте DNS для основного домена `sozd-chat.org`:
+     - A-записи на IP GitHub Pages: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+   - Или используйте поддомен `desc.sozd-chat.org` с CNAME на `kirill-demidov.github.io`
+
+### Файлы для GitHub Pages:
+
+- `.nojekyll` - отключает обработку Jekyll для статических файлов
+- `CNAME` - настройка кастомного домена
+- `.github/workflows/deploy.yml` - автоматический деплой через GitHub Actions
 
 ## Обновление контента
 
