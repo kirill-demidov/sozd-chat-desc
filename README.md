@@ -53,6 +53,8 @@ python3 -m http.server 8000
 
 Для размещения сайта на поддиректории основного домена `sozd-chat.org/desc`:
 
+> **⚠️ Если домен хостится на GoDaddy:** GoDaddy не поддерживает reverse proxy напрямую. Используйте **Вариант 2** (поддомен `desc.sozd-chat.org`) - это самый простой способ. Подробная инструкция: см. файл [GODADDY-SETUP.md](GODADDY-SETUP.md).
+
 1. **Вариант 1: Через nginx/reverse proxy** (рекомендуется для `/desc`)
    
    Настройте nginx на сервере домена `sozd-chat.org`. Добавьте в конфигурацию nginx:
@@ -88,11 +90,42 @@ python3 -m http.server 8000
    sudo systemctl reload nginx  # Перезагрузить nginx
    ```
 
-2. **Вариант 2: Через DNS и CNAME**
-   - Файл `CNAME` содержит `sozd-chat.org`
-   - Настройте DNS для основного домена `sozd-chat.org`:
-     - A-записи на IP GitHub Pages: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-   - Или используйте поддомен `desc.sozd-chat.org` с CNAME на `kirill-demidov.github.io`
+2. **Вариант 2: Поддомен `desc.sozd-chat.org`** (рекомендуется для GoDaddy)
+   
+   Настройте поддомен через DNS на GoDaddy:
+   
+   **Шаги:**
+   1. Зайдите в панель управления GoDaddy: https://sso.godaddy.com/
+   2. Перейдите в **My Products** → **DNS** для домена `sozd-chat.org`
+   3. Добавьте новую **CNAME запись**:
+      - **Name/Host**: `desc`
+      - **Value/Points to**: `kirill-demidov.github.io`
+      - **TTL**: 600 (или оставьте по умолчанию)
+   4. Сохраните изменения
+   5. Обновите файл `CNAME` в репозитории на `desc.sozd-chat.org`
+   6. Подождите 10-30 минут для распространения DNS
+   
+   Сайт будет доступен на: `https://desc.sozd-chat.org`
+
+3. **Вариант 3: Через Cloudflare** (для поддиректории `/desc`)
+   
+   Если используете Cloudflare:
+   1. Добавьте домен `sozd-chat.org` в Cloudflare
+   2. В **Rules** → **Transform Rules** → **Rewrite URL** создайте правило:
+      - **When**: `http.host eq "sozd-chat.org" and http.request.uri.path starts_with "/desc"`
+      - **Then**: Rewrite to static `/sozd-chat-desc/{{regexp(http.request.uri.path, "^/desc(/.*)$", "\1")}}`
+   3. Добавьте **Page Rule** для проксирования на GitHub Pages
+
+4. **Вариант 4: Основной домен на GitHub Pages**
+   
+   Если весь домен `sozd-chat.org` может быть на GitHub Pages:
+   - Настройте DNS на GoDaddy с A-записями на IP GitHub Pages:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+   - Обновите `CNAME` на `sozd-chat.org`
+   - Разместите контент основного сайта в поддиректории, а этот репозиторий в `/desc`
 
 ### Файлы для GitHub Pages:
 
