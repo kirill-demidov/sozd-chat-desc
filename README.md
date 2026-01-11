@@ -53,14 +53,39 @@ python3 -m http.server 8000
 
 Для размещения сайта на поддиректории основного домена `sozd-chat.org/desc`:
 
-1. **Вариант 1: Через nginx/reverse proxy**
-   - Настройте nginx на сервере домена `sozd-chat.org` для proxy на GitHub Pages
-   - Пример конфигурации nginx:
+1. **Вариант 1: Через nginx/reverse proxy** (рекомендуется для `/desc`)
+   
+   Настройте nginx на сервере домена `sozd-chat.org`. Добавьте в конфигурацию nginx:
+   
    ```nginx
    location /desc {
-       proxy_pass https://kirill-demidov.github.io/sozd-chat-desc/;
+       # Убираем /desc из пути и проксируем на GitHub Pages
+       rewrite ^/desc/?(.*)$ /sozd-chat-desc/$1 break;
+       proxy_pass https://kirill-demidov.github.io;
        proxy_set_header Host kirill-demidov.github.io;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header X-Forwarded-Host $host;
+       
+       # Поддержка WebSocket (если понадобится)
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection "upgrade";
+       
+       # Кэширование статических файлов
+       proxy_cache_valid 200 302 1h;
+       proxy_cache_valid 404 1m;
+       
+       # Обработка redirects
+       proxy_redirect https://kirill-demidov.github.io/sozd-chat-desc/ /desc/;
    }
+   ```
+   
+   После изменения конфигурации nginx:
+   ```bash
+   sudo nginx -t  # Проверить конфигурацию
+   sudo systemctl reload nginx  # Перезагрузить nginx
    ```
 
 2. **Вариант 2: Через DNS и CNAME**
